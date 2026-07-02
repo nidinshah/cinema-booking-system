@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CineMax — Movie Ticket Booking</title>
+  <meta name="description" content="Book movie tickets with CineMax. Choose a film, pick your seats, and confirm.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <nav>
+    <div class="nav-inner">
+      <div class="logo">
+        <img src="assets/cinemax-logo.svg" alt="CineMax">
+      </div>
+      <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home" onclick="closeMenu()">Home</a></li>
+        <li><a href="#movies" onclick="closeMenu()">Movies</a></li>
+        <li><a href="#details" onclick="closeMenu()">Details</a></li>
+        <li><a href="#booking" onclick="closeMenu()">Booking</a></li>
+        <li><a href="#confirmation" onclick="closeMenu()">Confirmation</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ── HERO ─────────────────────────────── -->
+  <header class="hero" id="home">
+    <div class="container">
+      <p class="eyebrow">Now showing</p>
+      <h1>Book your movie tickets.</h1>
+      <p class="lead">Choose a film, pick your seats, and confirm your booking. Simple as that.</p>
+      <div class="hero-actions">
+        <a href="#movies" class="btn">Browse movies</a>
+        <a href="#booking" class="btn btn-outline">Pick seats</a>
+      </div>
+      <p class="hero-note">3 films now showing &middot; RM 18 per seat</p>
+    </div>
+  </header>
+
+  <!-- ── MOVIES ───────────────────────────── -->
+  <section id="movies">
+    <div class="container">
+      <h2 class="title">Now Showing</h2>
+      <div class="movie-grid">
+
+        <article class="movie-card" onclick="selectMovie('Interstellar','A science fiction journey through space and time.','Sci‑Fi Adventure','2 Hours 49 Minutes','8.8/10','assets/interstellar.jpg')">
+          <img src="assets/interstellar.jpg" alt="Interstellar">
+          <div class="movie-content">
+            <h3>Interstellar</h3>
+            <p class="movie-meta">Sci‑Fi &middot; Adventure &middot; 2h 49m</p>
+            <button class="btn btn-outline btn-sm" type="button">View details</button>
+          </div>
+        </article>
+
+        <article class="movie-card" onclick="selectMovie('John Wick','An ex-hitman returns for revenge.','Action Thriller','2 Hours 10 Minutes','8.5/10','assets/john-wick.jpg')">
+          <img src="assets/john-wick.jpg" alt="John Wick">
+          <div class="movie-content">
+            <h3>John Wick</h3>
+            <p class="movie-meta">Action &middot; Thriller &middot; 2h 10m</p>
+            <button class="btn btn-outline btn-sm" type="button">View details</button>
+          </div>
+        </article>
+
+        <article class="movie-card" onclick="selectMovie('Avengers','Earth\'s mightiest heroes unite to save the world.','Marvel Action','2 Hours 30 Minutes','8.7/10','assets/avengers.jpg')">
+          <img src="assets/avengers.jpg" alt="Avengers">
+          <div class="movie-content">
+            <h3>Avengers</h3>
+            <p class="movie-meta">Marvel &middot; Action &middot; 2h 30m</p>
+            <button class="btn btn-outline btn-sm" type="button">View details</button>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── DETAILS ──────────────────────────── -->
+  <section id="details" class="section-alt">
+    <div class="container">
+      <h2 class="title">Movie Details</h2>
+      <div class="details-container">
+        <img id="detailImage" src="assets/john-wick.jpg" alt="Movie poster">
+        <div class="details-text">
+          <h2 id="detailTitle">John Wick</h2>
+          <p id="detailDescription">An ex-hitman returns for revenge against the criminal underworld.</p>
+          <dl class="detail-meta">
+            <div class="meta-item">
+              <dt>Genre</dt>
+              <dd id="detailGenre">Action Thriller</dd>
+            </div>
+            <div class="meta-item">
+              <dt>Duration</dt>
+              <dd id="detailDuration">2 Hours 10 Minutes</dd>
+            </div>
+            <div class="meta-item">
+              <dt>Rating</dt>
+              <dd id="detailRating">8.5/10</dd>
+            </div>
+          </dl>
+          <a href="#booking" class="btn">Book this ticket</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── BOOKING ──────────────────────────── -->
+  <section id="booking">
+    <div class="container">
+      <h2 class="title">Choose Your Seats</h2>
+      <div class="booking-container">
+        <div class="screen">Screen</div>
+
+        <div class="seats">
+          <div class="seat">A1</div>
+          <div class="seat">A2</div>
+          <div class="seat">A3</div>
+          <div class="seat">A4</div>
+          <div class="seat">A5</div>
+          <div class="seat">A6</div>
+          <div class="seat">B1</div>
+          <div class="seat">B2</div>
+          <div class="seat">B3</div>
+          <div class="seat">B4</div>
+          <div class="seat">B5</div>
+          <div class="seat">B6</div>
+        </div>
+
+        <div class="seat-legend">
+          <span><i class="legend-dot available"></i> Available</span>
+          <span><i class="legend-dot selected-dot"></i> Selected</span>
+          <span class="legend-price">RM 18 / seat</span>
+        </div>
+
+        <div class="booking-form">
+          <label class="field-label" for="name">Your name</label>
+          <input type="text" id="name" placeholder="Enter your name">
+          <button class="btn btn-full" onclick="confirmBooking()">Confirm booking</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CONFIRMATION ─────────────────────── -->
+  <section id="confirmation" class="section-alt">
+    <div class="container">
+      <h2 class="title">Booking Confirmed</h2>
+      <div class="confirmation-box">
+        <div class="confirm-details">
+          <div class="confirm-row">
+            <span class="confirm-label">Name</span>
+            <span id="confirmName">—</span>
+          </div>
+          <div class="confirm-row">
+            <span class="confirm-label">Movie</span>
+            <span id="confirmMovie">—</span>
+          </div>
+          <div class="confirm-row">
+            <span class="confirm-label">Seats</span>
+            <span id="confirmSeats">—</span>
+          </div>
+          <div class="confirm-row total-row">
+            <span class="confirm-label">Total</span>
+            <span>RM <span id="total">0</span></span>
+          </div>
+        </div>
+        <p class="confirm-note">Present this confirmation at the entrance.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>© CineMax Cinema Booking System by Nidin Shah 2020</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
